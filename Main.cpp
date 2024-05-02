@@ -9,6 +9,7 @@ int main()
 {
 
     bool dragging = false;
+    bool zooming = false;
 
     // Create a window and make it the size of the screen resolution and maximize it
     // (can and should be modified later)
@@ -73,8 +74,27 @@ int main()
                 );
             }
 
+            // For all key pressed
+            else if (event.type == sf::Event::KeyPressed) {
+                if (event.key.code == sf::Keyboard::LShift ||
+                    event.key.code == sf::Keyboard::RShift) {
+                    zooming = true;
+                }
+            }
+
+            // For all key released
+            else if (event.type == sf::Event::KeyReleased) {
+                if (event.key.code == sf::Keyboard::LShift ||
+                    event.key.code == sf::Keyboard::RShift) {
+                    zooming = false;
+                }
+            }
+
             // Check if they are scrolling (zooming)
             else if (event.type == sf::Event::MouseWheelScrolled) {
+                if (!zooming) {
+                    continue;
+                }
                 if (event.mouseWheelScroll.delta > 0) {
                     testingPage.zoom(0.75f);
                 }
