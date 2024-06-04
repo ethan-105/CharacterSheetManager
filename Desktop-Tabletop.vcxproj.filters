@@ -24,4 +24,15 @@
       <Filter>Source Files</Filter>
     </None>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="testingWindow.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="interactgui.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="textbuttongui.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
 </Project>
